@@ -1,11 +1,7 @@
 package data
 
-import android.media.Image
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import com.example.galleryof30cars.R
 
 
@@ -13,13 +9,7 @@ import com.example.galleryof30cars.R
 data class CarCard (@StringRes val descriptionRes: Int, @DrawableRes val imageRes: Int)
 
 
-//val carCards = mutableListOf<CarCard>() //лист со всеми тачками и их описанием
-//
-//val carDescriptions = mutableListOf<Int>() //лист с описаниями
-//val carImages = mutableListOf<Int>() //лист с изображениями
-//
-//var Img1 = R.drawable.acura
-//var Str1 = R.string.Acura
+
 
 public val carCardsRepo = listOf<CarCard>(
 
