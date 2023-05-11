@@ -22,6 +22,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.resolveDefaults
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.galleryof30cars.ui.theme.GalleryOf30CarsTheme
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Scaffold() {
                         GalleryApp()
-                        TopAppBar()
+                        AppBar()
                     }
                 }
             }
@@ -66,12 +67,13 @@ fun GalleryApp() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
+fun AppBar(modifier: Modifier = Modifier) {
+    TopAppBar(
         title = {
             Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.displayMedium,
+                text = stringResource(R.string.topAppBar),
+                style = MaterialTheme.typography.titleLarge,
+                textAlign = TextAlign.Left
             )
         },
         modifier = modifier
