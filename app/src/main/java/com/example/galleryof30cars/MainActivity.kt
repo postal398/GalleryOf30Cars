@@ -1,4 +1,5 @@
 package com.example.galleryof30cars
+import CardDisplayApp
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -28,7 +29,6 @@ import androidx.compose.ui.unit.sp
 import com.example.galleryof30cars.ui.theme.GalleryOf30CarsTheme
 import com.example.galleryof30cars.ui.theme.Typography
 import data.CarCard
-import data.CardDisplayApp
 import data.CardsRepository.carCardsRepo
 
 
