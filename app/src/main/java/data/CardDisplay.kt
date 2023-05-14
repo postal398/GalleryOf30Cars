@@ -1,8 +1,13 @@
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -23,6 +28,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.res.booleanResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -52,10 +58,16 @@ fun CardDisplayApp(CarCardParam : CarCard, modifier: Modifier) {
     ) {
         Column {//начало колонки
             CardDisplayImage(CarCardParam.imageRes, modifier, isTextVisible)
-            if (isTextVisible.value) {CardDisplayText(CarCardParam.descriptionRes, modifier)}
+            AnimatedVisibility(
+                    visible = isTextVisible.value,
+                enter = expandVertically(animationSpec = tween(durationMillis = 1500)),
+                exit = shrinkVertically(animationSpec = tween(durationMillis = 1500))
+                ) {CardDisplayText(CarCardParam.descriptionRes, modifier)}
+
+            }
         } //конец колонки
     }
-}
+
 
 
 @Composable
@@ -77,7 +89,8 @@ fun CardDisplayImage(
 fun CardDisplayText(
     @StringRes stringIdParam : Int, modifier: Modifier) {
     Text(stringResource(id = stringIdParam),
-        modifier.padding(5.dp)
+        modifier
+            .padding(5.dp)
             .animateContentSize(),
         style = myCustomTextStyle,
     )
