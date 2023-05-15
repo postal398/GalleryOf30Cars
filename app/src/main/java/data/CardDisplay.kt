@@ -60,8 +60,8 @@ fun CardDisplayApp(CarCardParam : CarCard, modifier: Modifier) {
             CardDisplayImage(CarCardParam.imageRes, modifier, isTextVisible)
             AnimatedVisibility(
                     visible = isTextVisible.value,
-                enter = expandVertically(animationSpec = tween(durationMillis = 1500)),
-                exit = shrinkVertically(animationSpec = tween(durationMillis = 1500))
+                enter = expandVertically(animationSpec = tween(durationMillis = 1000)),
+                exit = shrinkVertically(animationSpec = tween(durationMillis = 1000))
                 ) {CardDisplayText(CarCardParam.descriptionRes, modifier)}
 
             }
